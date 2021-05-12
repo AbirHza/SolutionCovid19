@@ -1,0 +1,36 @@
+.img-xs {
+  width: 35px;
+  height: 35px;
+}
+
+.rounded-circle {
+  border-radius: 50% !important;
+}
+
+.navbar-profile {
+  display: flex;
+  font-weight: normal;
+  align-items: center;
+  .navbar-profile-name {
+    white-space: nowrap;
+    margin-left: 1rem;
+    :host-context(.rtl) & {
+      margin-right: 1rem;
+      margin-left: 0;
+    }
+  }
+  i {
+    color: #a7afb7;
+  }
+}
+
+.ni {
+  margin-top: auto;
+}
+
+.dropdownactiv {
+  display: block;
+}
+.dropdownnone {
+  display: none;
+}

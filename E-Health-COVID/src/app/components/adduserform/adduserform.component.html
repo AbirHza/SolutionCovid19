@@ -1,0 +1,90 @@
+<div class="d-flex align-items-center auth px-0 bg-dark">
+  <div class="row w-100 mx-0">
+    <div class="col-lg-4 mx-auto">
+      <div class="auth-form-dark text-left py-5 px-4 px-sm-5">
+        <div class="brand-logo">
+          <img src="assets/images/logo.svg" alt="logo">
+        </div>
+        <h4 style="color: #BBBBBB">New here?</h4>
+        <h6 class="font-weight-light" style="color: #BBBBBB">Signing up is easy. It only takes a few steps</h6>
+        <form class="pt-3"  *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit(f)"
+              #f="ngForm" novalidate>
+
+          <div class="form-group">
+            <input required type="text" class="form-control form-control-lg" name="matricule"
+                   [(ngModel)]="user.matricule" #matricule="ngModel" ngModel placeholder="Matricule">
+          </div>
+          <br>
+
+          <!--<div class="form-group">
+            <select required class="form-select form-select-lg" [(ngModel)]="user.role" name="role" ngModel #role='ngModel'>
+              <option value="ROLE_ADMINISTRATEUR" >ADMINISTRATEUR</option>
+              <option value="ROLE_MEDECIN">MEDECIN</option>
+              <option value="ROLE_INFIRMIER">INFIRMIER</option>
+              <option value="ROLE_RADIOLOGUE">RADIOLOGUE</option>
+            </select>
+          </div>
+          <br>-->
+
+          <div class="form-group">
+            <input required type="text" class="form-control form-control-lg" [(ngModel)]="user.nom" name="nom" #nom='ngModel' ngModel placeholder="Nom">
+          </div>
+          <br>
+          <div class="form-group">
+            <input required type="text" class="form-control form-control-lg" [(ngModel)]="user.prenom" name="prenom" #prenom='ngModel' ngModel placeholder="Prenom">
+          </div>
+          <br>
+          <div class="form-group">
+            <input required type="email" class="form-control form-control-lg" [(ngModel)]="user.email" name="email" #email='ngModel' ngModel placeholder="Email">
+          </div>
+          <br>
+          <div class="form-group">
+            <input required type="date" class="form-control form-control-lg" [(ngModel)]="user.dateNaissance" name="dateNaissance" #dateNaissance='ngModel' ngModel placeholder="date de naissance">
+          </div>
+          <br>
+          <div class="form-group">
+            <select required class="form-select form-select-lg" [(ngModel)]="user.sexe" name="sexe"
+                    ngModel #sexe='ngModel'>
+              <option value="femme" >Femme</option>
+              <option value="homme">Homme</option>
+            </select>
+          </div>
+          <br>
+          <div class="form-group">
+            <input required type="text" class="form-control form-control-lg" [(ngModel)]="user.username"
+                   name="username" #username='ngModel' ngModel placeholder="Username">
+          </div>
+          <br>
+          <div class="form-group">
+            <input required type="password" class="form-control form-control-lg" [(ngModel)]="user.password"
+                   name="password" #password='ngModel' ngModel placeholder="Password">
+          </div>
+          <br>
+          <div class="mb-4" style="color: #BBBBBB">
+            <div class="form-check" style="color: #BBBBBB">
+              <label class="form-check-label text-muted" style="color: #BBBBBB">
+                <input required type="checkbox" class="form-check-input" name="term" ngModel #term='ngModel' style="color: #BBBBBB">
+                <i class="input-helper" style="color: #BBBBBB"></i>
+                I agree to all Terms & Conditions
+              </label>
+            </div>
+          </div>
+          <br>
+          <div class="mt-3">
+            <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit" [disabled]="f.invalid" *ngIf="us.iduser ==0">Add</button>
+            <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit" [disabled]="f.invalid" *ngIf="us.iduser !=0">Update</button>
+          </div>
+          <br>
+          <div class="alert alert-warning" style="color: #BBBBBB" *ngIf="f.submitted && isSignUpFailed">
+            Signup failed!<br />{{ errorMessage }}
+          </div>
+        </form>
+
+        <div class="alert alert-success" *ngIf="isSuccessful">
+          Your registration is successful!
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
